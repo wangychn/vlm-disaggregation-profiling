@@ -1,0 +1,8 @@
+torch
+transformers
+accelerate
+pillow
+torchvision
+sentencepiece
+einops
+pycocotools

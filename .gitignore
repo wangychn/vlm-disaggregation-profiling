@@ -1,0 +1,11 @@
+distserve_ref/
+deepstack_ref/
+artifacts/
+traces/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+env/
