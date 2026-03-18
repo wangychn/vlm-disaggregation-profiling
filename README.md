@@ -16,7 +16,7 @@ It does two things:
   engine/                 # shared utilities for probing and datasets
     utils.py              # model tree, profiling helpers, device helpers
     profiler.py           # hook-based PyTorch profiler
-    datasets.py           # loaders for COCO and other eval sets
+    datasets.py           # Hugging Face MME loader and local materializer
   tasks/                  # probe entrypoints / experiments
     qwen3vl_probe.py      # main profiling CLI
   deepstack_ref/          # reference DeepStack serving framework
@@ -62,27 +62,42 @@ python3 tasks/qwen3vl_probe.py \
 
 ## Datasets
 
-Helpers for common multimodal evaluation sets live in
-`engine/datasets.py`.  For COCO captions you can run:
+Dataset support is now centered on `lmms-lab/MME` from Hugging Face:
+
+https://huggingface.co/datasets/lmms-lab/MME
+
+Prepare a small local working set:
 
 ```bash
-python3 -m engine.datasets --root data/coco --split val2017 --download
+python3 -m engine.datasets \
+  --root data/mme \
+  --split test \
+  --max-items 50
 ```
 
-or use the Python API to download and iterate over a few examples:
+Or use the shell wrapper:
 
-```python
-from pathlib import Path
-from engine.datasets import download_coco, load_coco_captions
-
-data_root = Path("data/coco")
-download_coco(data_root, split="val2017")
-for img_path, caption in load_coco_captions(data_root, max_items=5):
-    print(img_path, caption)
+```bash
+bash scripts/download_mme.sh data/mme test 50
 ```
 
-The probe CLI supports `--coco-root` (plus `--coco-max`) so you can profile
-multiple images from a dataset instead of supplying a single image and prompt.
+Useful options:
+
+- `--cache-dir /path/to/hf-cache` to control Hugging Face dataset caching
+- `--max-items N` to only materialize a small subset
+- `--streaming` to avoid preparing the full split up front
+- `--category artwork` to keep only one MME category
+
+Then profile from MME directly:
+
+```bash
+python3 tasks/qwen3vl_probe.py \
+  --model-id Qwen/Qwen3-VL-8B-Instruct \
+  --mme-root data/mme \
+  --mme-max 10 \
+  --mode forward \
+  --output-dir artifacts/qwen3vl-mme
+```
 
 ## Notes
 

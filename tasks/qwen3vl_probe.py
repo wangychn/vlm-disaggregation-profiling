@@ -69,9 +69,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--image", default=None)
     parser.add_argument("--prompt", default="Describe the image.")
-    parser.add_argument("--coco-root", default=None, help="directory containing COCO data")
-    parser.add_argument("--coco-split", default="val2017", help="COCO split to use")
-    parser.add_argument("--coco-max", type=int, default=3, help="number of examples to profile")
+    parser.add_argument("--mme-root", default=None, help="local directory used to cache selected MME examples")
+    parser.add_argument("--mme-split", default="test", help="MME split to use")
+    parser.add_argument("--mme-cache-dir", default=None, help="optional Hugging Face datasets cache directory")
+    parser.add_argument("--mme-max", type=int, default=3, help="number of MME examples to profile")
+    parser.add_argument("--mme-streaming", action="store_true", help="stream MME rows instead of preparing the full slice")
+    parser.add_argument("--mme-category", default=None, help="optional single MME category filter")
     parser.add_argument("--mode", choices=("forward", "generate"), default="forward")
     parser.add_argument("--max-new-tokens", type=int, default=16)
     parser.add_argument("--device-map", default="auto")
@@ -117,16 +120,20 @@ def main() -> None:
     print(f"decoder_layers={len(module_info['decoder_layers'])}")
     print(f"deepstack_modules={module_info['deepstack_modules']}")
 
-    # if COCO dataset requested, iterate a few examples
+    # if MME dataset requested, iterate a few examples
     examples = []
-    if args.coco_root and not args.image:
-        from engine.datasets import download_coco, load_coco_captions
+    if args.mme_root and not args.image:
+        from engine.datasets import iter_mme_examples
 
-        download_coco(Path(args.coco_root), split=args.coco_split)
-        for img_path, caption in load_coco_captions(
-            Path(args.coco_root), split=args.coco_split, max_items=args.coco_max
+        for img_path, question, _meta in iter_mme_examples(
+            Path(args.mme_root),
+            split=args.mme_split,
+            cache_dir=args.mme_cache_dir,
+            max_items=args.mme_max,
+            streaming=args.mme_streaming,
+            category=args.mme_category,
         ):
-            examples.append((img_path, caption))
+            examples.append((img_path, question))
     elif args.image:
         examples.append((args.image, args.prompt))
 
