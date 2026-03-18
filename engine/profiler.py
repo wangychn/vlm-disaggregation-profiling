@@ -1,4 +1,7 @@
+import time
 import torch
+from engine.utils import summarize
+
 def sync_cuda(enabled: bool, value) -> None:
 
     if not enabled or not torch.cuda.is_available():

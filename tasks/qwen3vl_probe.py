@@ -2,8 +2,13 @@ from __future__ import annotations
 
 import argparse
 import inspect
+import sys
 import time
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 # helpers from engine
 from engine.utils import (
@@ -15,7 +20,6 @@ from engine.utils import (
     pick_device,
     move_to_device,
 )
-from engine.profiler import profile_run
 
 
 def load_model(model_id: str, dtype: str, device_map: str, trust_remote_code: bool):
@@ -65,6 +69,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--image", default=None)
     parser.add_argument("--prompt", default="Describe the image.")
+    parser.add_argument("--coco-root", default=None, help="directory containing COCO data")
+    parser.add_argument("--coco-split", default="val2017", help="COCO split to use")
+    parser.add_argument("--coco-max", type=int, default=3, help="number of examples to profile")
     parser.add_argument("--mode", choices=("forward", "generate"), default="forward")
     parser.add_argument("--max-new-tokens", type=int, default=16)
     parser.add_argument("--device-map", default="auto")
@@ -110,47 +117,63 @@ def main() -> None:
     print(f"decoder_layers={len(module_info['decoder_layers'])}")
     print(f"deepstack_modules={module_info['deepstack_modules']}")
 
-    if not args.image:
+    # if COCO dataset requested, iterate a few examples
+    examples = []
+    if args.coco_root and not args.image:
+        from engine.datasets import download_coco, load_coco_captions
+
+        download_coco(Path(args.coco_root), split=args.coco_split)
+        for img_path, caption in load_coco_captions(
+            Path(args.coco_root), split=args.coco_split, max_items=args.coco_max
+        ):
+            examples.append((img_path, caption))
+    elif args.image:
+        examples.append((args.image, args.prompt))
+
+    if not examples:
         return
 
-    batch = prepare_inputs(
-        processor,
-        prompt=args.prompt,
-        image_path=args.image,
-        add_generation_prompt=(args.mode == "generate"),
-    )
-    batch = move_to_device(batch, pick_device(model))
+    from engine.profiler import profile_run
 
-    if args.all_modules:
-        targets = [name for name, _ in model.named_modules() if name]
-    else:
-        targets = (
-            module_info["vision_encoder"]
-            + module_info["merger"]
-            + module_info["deepstack_modules"]
-            + module_info["decoder_layers"]
+    for idx, (img_path, caption) in enumerate(examples, start=1):
+        batch = prepare_inputs(
+            processor,
+            prompt=caption,
+            image_path=str(img_path),
+            add_generation_prompt=(args.mode == "generate"),
         )
+        batch = move_to_device(batch, pick_device(model))
 
-    profile = profile_run(
-        model,
-        batch,
-        target_names=targets,
-        mode=args.mode,
-        max_new_tokens=args.max_new_tokens,
-        sync_each_hook=not args.no_sync_cuda,
-    )
-    profile["hooked_modules"] = targets
+        if args.all_modules:
+            targets = [name for name, _ in model.named_modules() if name]
+        else:
+            targets = (
+                module_info["vision_encoder"]
+                + module_info["merger"]
+                + module_info["deepstack_modules"]
+                + module_info["decoder_layers"]
+            )
 
-    # ================
-
-    write_json(output_dir / "profile.json", profile)
-
-    print(f"total_ms={profile['total_ms']:.3f}")
-    print(f"peak_memory_bytes={profile['peak_memory_bytes']}")
-    for item in profile["aggregated"][:10]:
-        print(
-            f"{item['module_name']}: calls={item['calls']} total_ms={item['total_ms']:.3f} avg_ms={item['avg_ms']:.3f}"
+        sample_dir = output_dir / f"sample_{idx}"
+        sample_dir.mkdir(exist_ok=True)
+        profile = profile_run(
+            model,
+            batch,
+            target_names=targets,
+            mode=args.mode,
+            max_new_tokens=args.max_new_tokens,
+            sync_each_hook=not args.no_sync_cuda,
         )
+        profile["hooked_modules"] = targets
+        write_json(sample_dir / "profile.json", profile)
+        print(f"sample {idx} total_ms={profile['total_ms']:.3f}")
+        print(f"sample {idx} peak_memory_bytes={profile['peak_memory_bytes']}")
+        for item in profile["aggregated"][:10]:
+            print(
+                f"{item['module_name']}: calls={item['calls']} total_ms={item['total_ms']:.3f} avg_ms={item['avg_ms']:.3f}"
+            )
+        print("---")
+
 
 
 if __name__ == "__main__":

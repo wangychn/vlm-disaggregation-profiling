@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_probe.sh - lightweight wrapper for qwen3vl_probe
+# run_probe.sh - lightweight wrapper for tasks/qwen3vl_probe.py
 # Usage: ./run_probe.sh [MODEL] [IMAGE] [PROMPT] [MODE] [DTYPE] [OUTDIR]
 
 set -euo pipefail
@@ -17,7 +17,7 @@ mkdir -p "$OUTDIR"
 echo "Running probe with model=$MODEL image=$IMAGE mode=$MODE dtype=$DTYPE"
 echo "Outputs will be written to $OUTDIR"
 
-python3 qwen3vl_probe.py \
+python3 tasks/qwen3vl_probe.py \
   --model-id "$MODEL" \
   --image "$IMAGE" \
   --prompt "$PROMPT" \
@@ -25,3 +25,8 @@ python3 qwen3vl_probe.py \
   --device-map auto \
   --dtype "$DTYPE" \
   --output-dir "$OUTDIR"
+
+# smoke test
+# python3 tasks/qwen3vl_probe.py \
+#   --model-id Qwen/Qwen3-VL-8B-Instruct \
+#   --output-dir artifacts/qwen3vl-8b-inspect

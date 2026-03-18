@@ -1,8 +1,9 @@
-torch
-transformers
-accelerate
-pillow
-torchvision
-sentencepiece
-einops
-pycocotools
+torch>=2.1.0
+transformers>=4.57.0
+accelerate>=0.24.0
+pillow>=10.0.0
+torchvision>=0.16.0
+sentencepiece>=0.1.99
+einops>=0.7.0
+pycocotools>=2.0.7
+requests>=2.31.0
