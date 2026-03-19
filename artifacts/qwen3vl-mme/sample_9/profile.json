@@ -1,0 +1,1765 @@
+{
+  "aggregated": [
+    {
+      "avg_ms": 24.48075544089079,
+      "calls": 1,
+      "module_class": "Qwen3VLVisionModel",
+      "module_name": "model.visual",
+      "total_ms": 24.48075544089079
+    },
+    {
+      "avg_ms": 5.8476971462368965,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.0",
+      "total_ms": 5.8476971462368965
+    },
+    {
+      "avg_ms": 4.6590398997068405,
+      "calls": 1,
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.0",
+      "total_ms": 4.6590398997068405
+    },
+    {
+      "avg_ms": 2.473338507115841,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.0.linear_fc2",
+      "total_ms": 2.473338507115841
+    },
+    {
+      "avg_ms": 2.030518837273121,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.0.linear_fc1",
+      "total_ms": 2.030518837273121
+    },
+    {
+      "avg_ms": 0.7571550086140633,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.1",
+      "total_ms": 0.7571550086140633
+    },
+    {
+      "avg_ms": 0.7308274507522583,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.2",
+      "total_ms": 0.7308274507522583
+    },
+    {
+      "avg_ms": 0.7097097113728523,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.3",
+      "total_ms": 0.7097097113728523
+    },
+    {
+      "avg_ms": 0.6918599829077721,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.5",
+      "total_ms": 0.6918599829077721
+    },
+    {
+      "avg_ms": 0.6865495815873146,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.29",
+      "total_ms": 0.6865495815873146
+    },
+    {
+      "avg_ms": 0.6811590865254402,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.17",
+      "total_ms": 0.6811590865254402
+    },
+    {
+      "avg_ms": 0.680064782500267,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.32",
+      "total_ms": 0.680064782500267
+    },
+    {
+      "avg_ms": 0.6794538348913193,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.6",
+      "total_ms": 0.6794538348913193
+    },
+    {
+      "avg_ms": 0.6778491660952568,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.30",
+      "total_ms": 0.6778491660952568
+    },
+    {
+      "avg_ms": 0.6766226142644882,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.9",
+      "total_ms": 0.6766226142644882
+    },
+    {
+      "avg_ms": 0.6758170202374458,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.23",
+      "total_ms": 0.6758170202374458
+    },
+    {
+      "avg_ms": 0.6752125918865204,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.4",
+      "total_ms": 0.6752125918865204
+    },
+    {
+      "avg_ms": 0.6719846278429031,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.27",
+      "total_ms": 0.6719846278429031
+    },
+    {
+      "avg_ms": 0.6719399243593216,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.26",
+      "total_ms": 0.6719399243593216
+    },
+    {
+      "avg_ms": 0.6714779883623123,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.18",
+      "total_ms": 0.6714779883623123
+    },
+    {
+      "avg_ms": 0.6690574809908867,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.28",
+      "total_ms": 0.6690574809908867
+    },
+    {
+      "avg_ms": 0.6676455959677696,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.35",
+      "total_ms": 0.6676455959677696
+    },
+    {
+      "avg_ms": 0.666571781039238,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.20",
+      "total_ms": 0.666571781039238
+    },
+    {
+      "avg_ms": 0.6665065884590149,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.33",
+      "total_ms": 0.6665065884590149
+    },
+    {
+      "avg_ms": 0.6663976237177849,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.10",
+      "total_ms": 0.6663976237177849
+    },
+    {
+      "avg_ms": 0.6659002974629402,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.31",
+      "total_ms": 0.6659002974629402
+    },
+    {
+      "avg_ms": 0.6655501201748848,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.34",
+      "total_ms": 0.6655501201748848
+    },
+    {
+      "avg_ms": 0.6655259057879448,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.24",
+      "total_ms": 0.6655259057879448
+    },
+    {
+      "avg_ms": 0.665443018078804,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.22",
+      "total_ms": 0.665443018078804
+    },
+    {
+      "avg_ms": 0.6642360240221024,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.14",
+      "total_ms": 0.6642360240221024
+    },
+    {
+      "avg_ms": 0.6641056388616562,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.11",
+      "total_ms": 0.6641056388616562
+    },
+    {
+      "avg_ms": 0.6637396290898323,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.13",
+      "total_ms": 0.6637396290898323
+    },
+    {
+      "avg_ms": 0.6636343896389008,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.8",
+      "total_ms": 0.6636343896389008
+    },
+    {
+      "avg_ms": 0.6633875891566277,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.12",
+      "total_ms": 0.6633875891566277
+    },
+    {
+      "avg_ms": 0.6625084206461906,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.16",
+      "total_ms": 0.6625084206461906
+    },
+    {
+      "avg_ms": 0.6624413654208183,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.19",
+      "total_ms": 0.6624413654208183
+    },
+    {
+      "avg_ms": 0.6615575402975082,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.7",
+      "total_ms": 0.6615575402975082
+    },
+    {
+      "avg_ms": 0.6613722071051598,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.25",
+      "total_ms": 0.6613722071051598
+    },
+    {
+      "avg_ms": 0.6595645099878311,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.21",
+      "total_ms": 0.6595645099878311
+    },
+    {
+      "avg_ms": 0.6593139842152596,
+      "calls": 1,
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.15",
+      "total_ms": 0.6593139842152596
+    },
+    {
+      "avg_ms": 0.22641196846961975,
+      "calls": 1,
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.1",
+      "total_ms": 0.22641196846961975
+    },
+    {
+      "avg_ms": 0.2192184329032898,
+      "calls": 1,
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.2",
+      "total_ms": 0.2192184329032898
+    },
+    {
+      "avg_ms": 0.08553359657526016,
+      "calls": 1,
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.merger",
+      "total_ms": 0.08553359657526016
+    },
+    {
+      "avg_ms": 0.04603248089551926,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.1.linear_fc1",
+      "total_ms": 0.04603248089551926
+    },
+    {
+      "avg_ms": 0.044072046875953674,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.2.linear_fc1",
+      "total_ms": 0.044072046875953674
+    },
+    {
+      "avg_ms": 0.03961194306612015,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.1.linear_fc2",
+      "total_ms": 0.03961194306612015
+    },
+    {
+      "avg_ms": 0.039295293390750885,
+      "calls": 1,
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.2.linear_fc2",
+      "total_ms": 0.039295293390750885
+    },
+    {
+      "avg_ms": 0.027570873498916626,
+      "calls": 1,
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.1.norm",
+      "total_ms": 0.027570873498916626
+    },
+    {
+      "avg_ms": 0.027336180210113525,
+      "calls": 1,
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.2.norm",
+      "total_ms": 0.027336180210113525
+    },
+    {
+      "avg_ms": 0.027327798306941986,
+      "calls": 1,
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.0.norm",
+      "total_ms": 0.027327798306941986
+    },
+    {
+      "avg_ms": 0.02215709537267685,
+      "calls": 1,
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.0.act_fn",
+      "total_ms": 0.02215709537267685
+    },
+    {
+      "avg_ms": 0.01793261617422104,
+      "calls": 1,
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.1.act_fn",
+      "total_ms": 0.01793261617422104
+    },
+    {
+      "avg_ms": 0.017070211470127106,
+      "calls": 1,
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.2.act_fn",
+      "total_ms": 0.017070211470127106
+    }
+  ],
+  "events": [
+    {
+      "elapsed_ms": 0.027327798306941986,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.0.norm",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 2.030518837273121,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.0.linear_fc1",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.02215709537267685,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.0.act_fn",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 2.473338507115841,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.0.linear_fc2",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 4.6590398997068405,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1152
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.0",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.027570873498916626,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.1.norm",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.04603248089551926,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.1.linear_fc1",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.01793261617422104,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.1.act_fn",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.03961194306612015,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.1.linear_fc2",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.22641196846961975,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1152
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.1",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.027336180210113525,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "LayerNorm",
+      "module_name": "model.visual.deepstack_merger_list.2.norm",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.044072046875953674,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.2.linear_fc1",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.017070211470127106,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "GELU",
+      "module_name": "model.visual.deepstack_merger_list.2.act_fn",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4608
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.039295293390750885,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4608
+          ]
+        }
+      ],
+      "module_class": "Linear",
+      "module_name": "model.visual.deepstack_merger_list.2.linear_fc2",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.2192184329032898,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1152
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.deepstack_merger_list.2",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.08553359657526016,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1152
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLVisionPatchMerger",
+      "module_name": "model.visual.merger",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          75,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 24.48075544089079,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1536
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLVisionModel",
+      "module_name": "model.visual",
+      "output_summary": {
+        "deepstack_features": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.bfloat16",
+            "shape": [
+              75,
+              4096
+            ]
+          },
+          {
+            "device": "cuda:0",
+            "dtype": "torch.bfloat16",
+            "shape": [
+              75,
+              4096
+            ]
+          },
+          {
+            "device": "cuda:0",
+            "dtype": "torch.bfloat16",
+            "shape": [
+              75,
+              4096
+            ]
+          }
+        ],
+        "last_hidden_state": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            300,
+            1152
+          ]
+        },
+        "pooler_output": {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            75,
+            4096
+          ]
+        }
+      }
+    },
+    {
+      "elapsed_ms": 5.8476971462368965,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.0",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.7571550086140633,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.1",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.7308274507522583,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.2",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.7097097113728523,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.3",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6752125918865204,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.4",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6918599829077721,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.5",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6794538348913193,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.6",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6615575402975082,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.7",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6636343896389008,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.8",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6766226142644882,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.9",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6663976237177849,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.10",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6641056388616562,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.11",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6633875891566277,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.12",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6637396290898323,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.13",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6642360240221024,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.14",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6593139842152596,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.15",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6625084206461906,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.16",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6811590865254402,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.17",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6714779883623123,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.18",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6624413654208183,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.19",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.666571781039238,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.20",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6595645099878311,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.21",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.665443018078804,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.22",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6758170202374458,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.23",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6655259057879448,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.24",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6613722071051598,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.25",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6719399243593216,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.26",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6719846278429031,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.27",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6690574809908867,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.28",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6865495815873146,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.29",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6778491660952568,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.30",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6659002974629402,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.31",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.680064782500267,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.32",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6665065884590149,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.33",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6655501201748848,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.34",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    },
+    {
+      "elapsed_ms": 0.6676455959677696,
+      "input_summary": [
+        {
+          "device": "cuda:0",
+          "dtype": "torch.bfloat16",
+          "shape": [
+            1,
+            105,
+            4096
+          ]
+        }
+      ],
+      "module_class": "Qwen3VLTextDecoderLayer",
+      "module_name": "model.language_model.layers.35",
+      "output_summary": {
+        "device": "cuda:0",
+        "dtype": "torch.bfloat16",
+        "shape": [
+          1,
+          105,
+          4096
+        ]
+      }
+    }
+  ],
+  "hooked_modules": [
+    "model.visual",
+    "model.visual.merger",
+    "model.visual.deepstack_merger_list",
+    "model.visual.deepstack_merger_list",
+    "model.visual.deepstack_merger_list.0",
+    "model.visual.deepstack_merger_list.0.act_fn",
+    "model.visual.deepstack_merger_list.0.linear_fc1",
+    "model.visual.deepstack_merger_list.0.linear_fc2",
+    "model.visual.deepstack_merger_list.0.norm",
+    "model.visual.deepstack_merger_list.1",
+    "model.visual.deepstack_merger_list.1.act_fn",
+    "model.visual.deepstack_merger_list.1.linear_fc1",
+    "model.visual.deepstack_merger_list.1.linear_fc2",
+    "model.visual.deepstack_merger_list.1.norm",
+    "model.visual.deepstack_merger_list.2",
+    "model.visual.deepstack_merger_list.2.act_fn",
+    "model.visual.deepstack_merger_list.2.linear_fc1",
+    "model.visual.deepstack_merger_list.2.linear_fc2",
+    "model.visual.deepstack_merger_list.2.norm",
+    "model.language_model.layers.0",
+    "model.language_model.layers.1",
+    "model.language_model.layers.10",
+    "model.language_model.layers.11",
+    "model.language_model.layers.12",
+    "model.language_model.layers.13",
+    "model.language_model.layers.14",
+    "model.language_model.layers.15",
+    "model.language_model.layers.16",
+    "model.language_model.layers.17",
+    "model.language_model.layers.18",
+    "model.language_model.layers.19",
+    "model.language_model.layers.2",
+    "model.language_model.layers.20",
+    "model.language_model.layers.21",
+    "model.language_model.layers.22",
+    "model.language_model.layers.23",
+    "model.language_model.layers.24",
+    "model.language_model.layers.25",
+    "model.language_model.layers.26",
+    "model.language_model.layers.27",
+    "model.language_model.layers.28",
+    "model.language_model.layers.29",
+    "model.language_model.layers.3",
+    "model.language_model.layers.30",
+    "model.language_model.layers.31",
+    "model.language_model.layers.32",
+    "model.language_model.layers.33",
+    "model.language_model.layers.34",
+    "model.language_model.layers.35",
+    "model.language_model.layers.4",
+    "model.language_model.layers.5",
+    "model.language_model.layers.6",
+    "model.language_model.layers.7",
+    "model.language_model.layers.8",
+    "model.language_model.layers.9"
+  ],
+  "mode": "forward",
+  "output_type": "Qwen3VLCausalLMOutputWithPast",
+  "peak_memory_bytes": 17653425664,
+  "total_ms": 57.8486081212759
+}
