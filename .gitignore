@@ -1,6 +1,5 @@
 distserve_ref/
 deepstack_ref/
-artifacts/
 traces/
 .pytest_cache/
 __pycache__/
@@ -9,3 +8,4 @@ __pycache__/
 .venv/
 venv/
 env/
+data/
