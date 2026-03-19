@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import inspect
 import sys
-import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,11 +35,11 @@ def load_model(model_id: str, dtype: str, device_map: str, trust_remote_code: bo
     processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=trust_remote_code)
     return model, processor
 
-def prepare_inputs(processor, prompt: str, image_path: str | None, add_generation_prompt: bool):
-    content = []
-    if image_path:
-        content.append({"type": "image", "path": image_path})
-    content.append({"type": "text", "text": prompt})
+def prepare_inputs(processor, question: str, image_path: str, add_generation_prompt: bool):
+    content = [
+        {"type": "image", "path": image_path},
+        {"type": "text", "text": question},
+    ]
     messages = [{"role": "user", "content": content}]
 
     try:
@@ -67,9 +66,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Minimal Qwen3-VL inspection and profiling probe.")
     parser.add_argument("--model-id", default="Qwen/Qwen3-VL-4B-Instruct")
     parser.add_argument("--output-dir", required=True)
-    parser.add_argument("--image", default=None)
-    parser.add_argument("--prompt", default="Describe the image.")
-    parser.add_argument("--mme-root", default=None, help="local directory used to cache selected MME examples")
+    parser.add_argument("--mme-root", required=True, help="local directory used to cache selected MME examples")
     parser.add_argument("--mme-split", default="test", help="MME split to use")
     parser.add_argument("--mme-cache-dir", default=None, help="optional Hugging Face datasets cache directory")
     parser.add_argument("--mme-max", type=int, default=3, help="number of MME examples to profile")
@@ -120,32 +117,24 @@ def main() -> None:
     print(f"decoder_layers={len(module_info['decoder_layers'])}")
     print(f"deepstack_modules={module_info['deepstack_modules']}")
 
-    # if MME dataset requested, iterate a few examples
-    examples = []
-    if args.mme_root and not args.image:
-        from engine.datasets import iter_mme_examples
-
-        for img_path, question, _meta in iter_mme_examples(
+    from engine.datasets import iter_mme_examples
+    examples = list(
+        iter_mme_examples(
             Path(args.mme_root),
             split=args.mme_split,
             cache_dir=args.mme_cache_dir,
             max_items=args.mme_max,
             streaming=args.mme_streaming,
             category=args.mme_category,
-        ):
-            examples.append((img_path, question))
-    elif args.image:
-        examples.append((args.image, args.prompt))
-
-    if not examples:
-        return
+        )
+    )
 
     from engine.profiler import profile_run
 
-    for idx, (img_path, caption) in enumerate(examples, start=1):
+    for idx, (img_path, question, _meta) in enumerate(examples, start=1):
         batch = prepare_inputs(
             processor,
-            prompt=caption,
+            question=question,
             image_path=str(img_path),
             add_generation_prompt=(args.mode == "generate"),
         )
