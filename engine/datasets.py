@@ -91,13 +91,13 @@ def iter_mme_examples(
         question_id = str(row.get("question_id", yielded))
         safe_id = question_id.replace("/", "_")
 
-        suffix = ".png"
-        if getattr(image, "format", None):
-            suffix = "." + str(image.format).lower()
+        # suffix = ".png"
+        # if getattr(image, "format", None):
+        #     suffix = "." + str(image.format).lower()
 
         image_dir = export_root / row_category
         image_dir.mkdir(parents=True, exist_ok=True)
-        image_path = image_dir / f"{safe_id}{suffix}"
+        image_path = image_dir / f"{safe_id}"
 
         if not image_path.exists():
             image.save(image_path)

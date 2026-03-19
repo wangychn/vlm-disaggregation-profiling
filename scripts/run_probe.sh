@@ -2,10 +2,7 @@ set -euo pipefail
 
 # default output directory under "outputs" with timestamp
 OUTDIR=${6:-outputs/probe-$(date +%Y%m%d_%H%M%S)}
-mkdir -p "$OUTDIR"
-
-echo "Running probe with model=$MODEL image=$IMAGE mode=$MODE dtype=$DTYPE"
-echo "Outputs will be written to $OUTDIR"
+mkdir -p "artifacts/qwen3vl-mme"
 
 python3 tasks/qwen3vl_probe.py \
   --model-id Qwen/Qwen3-VL-8B-Instruct \
