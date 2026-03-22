@@ -4,6 +4,7 @@ import argparse
 import inspect
 import sys
 from pathlib import Path
+from engine.utils import load_qwen3vl, prepare_inputs
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -19,47 +20,6 @@ from engine.utils import (
     pick_device,
     move_to_device,
 )
-
-
-def load_model(model_id: str, dtype: str, device_map: str, trust_remote_code: bool):
-    from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
-
-    kwargs = {
-        "torch_dtype": torch_dtype(dtype),
-        "trust_remote_code": trust_remote_code,
-    }
-    if device_map != "none":
-        kwargs["device_map"] = device_map
-
-    model = Qwen3VLForConditionalGeneration.from_pretrained(model_id, **kwargs)
-    processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=trust_remote_code)
-    return model, processor
-
-def prepare_inputs(processor, question: str, image_path: str, add_generation_prompt: bool):
-    content = [
-        {"type": "image", "path": image_path},
-        {"type": "text", "text": question},
-    ]
-    messages = [{"role": "user", "content": content}]
-
-    try:
-        batch = processor.apply_chat_template(
-            messages,
-            tokenize=True,
-            add_generation_prompt=add_generation_prompt,
-            return_dict=True,
-            return_tensors="pt",
-        )
-    except TypeError:
-        batch = processor.apply_chat_template(
-            messages,
-            tokenize=True,
-            add_generation_prompt=add_generation_prompt,
-            return_tensors="pt",
-        )
-    if isinstance(batch, dict):
-        batch.pop("token_type_ids", None)
-    return batch
 
 
 def parse_args() -> argparse.Namespace:
@@ -82,12 +42,25 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def image_size(image_path: Path) -> tuple[int | None, int | None]:
+    from PIL import Image
+
+    with Image.open(image_path) as image:
+        return image.width, image.height
+
+
+def short_text(value: str, limit: int = 120) -> str:
+    if len(value) <= limit:
+        return value
+    return value[: limit - 3] + "..."
+
+
 def main() -> None:
     args = parse_args()
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    model, processor = load_model(
+    model, processor = load_qwen3vl(
         args.model_id,
         dtype=args.dtype,
         device_map=args.device_map,
@@ -131,7 +104,8 @@ def main() -> None:
 
     from engine.profiler import profile_run
 
-    for idx, (img_path, question, _meta) in enumerate(examples, start=1):
+    for idx, (img_path, question, meta) in enumerate(examples, start=1):
+        width, height = image_size(img_path)
         batch = prepare_inputs(
             processor,
             question=question,
@@ -160,15 +134,55 @@ def main() -> None:
             max_new_tokens=args.max_new_tokens,
             sync_each_hook=not args.no_sync_cuda,
         )
-        profile["hooked_modules"] = targets
-        write_json(sample_dir / "profile.json", profile)
-        print(f"sample {idx} total_ms={profile['total_ms']:.3f}")
-        print(f"sample {idx} peak_memory_bytes={profile['peak_memory_bytes']}")
-        for item in profile["aggregated"][:10]:
+        payload = {
+            "sample": {
+                "sample_index": idx,
+                "repeat_index": 1,
+                "image_path": str(img_path),
+                "image_width": width,
+                "image_height": height,
+                "question": question,
+                "question_length_chars": len(question),
+                "mme": {
+                    "category": meta.get("category"),
+                    "question_id": meta.get("question_id"),
+                    "answer": meta.get("answer"),
+                },
+            },
+            "run": {
+                "model_id": args.model_id,
+                "dtype": args.dtype,
+                "mode": args.mode,
+                "device_map": args.device_map,
+                "max_new_tokens": args.max_new_tokens,
+                "sync_cuda": not args.no_sync_cuda,
+                "input_token_count": profile["input_token_count"],
+                "output_token_count": profile["output_token_count"],
+                "generated_token_count": profile["generated_token_count"],
+                "total_ms": profile["total_ms"],
+                "peak_memory_bytes": profile["peak_memory_bytes"],
+                "output_type": profile["output_type"],
+            },
+            "hooked_modules": targets,
+            "top_modules": profile["aggregated"][:10],
+            "module_summary": profile["aggregated"],
+            "events": profile["events"],
+        }
+        write_json(sample_dir / "profile.json", payload)
+        print(f"[sample {idx}]")
+        print(f"  category={meta.get('category')} question_id={meta.get('question_id')}")
+        print(f"  image={img_path.name} size={width}x{height}")
+        print(f"  question={short_text(question)}")
+        print(
+            f"  mode={args.mode} total_ms={profile['total_ms']:.3f} peak_memory_bytes={profile['peak_memory_bytes']} "
+            f"generated_tokens={profile['generated_token_count']}"
+        )
+        print("  top_modules:")
+        for item in payload["top_modules"][:5]:
             print(
-                f"{item['module_name']}: calls={item['calls']} total_ms={item['total_ms']:.3f} avg_ms={item['avg_ms']:.3f}"
+                f"    - {item['module_name']}: calls={item['calls']} total_ms={item['total_ms']:.3f} avg_ms={item['avg_ms']:.3f}"
             )
-        print("---")
+        print()
 
 
 

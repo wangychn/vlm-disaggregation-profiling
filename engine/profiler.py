@@ -2,6 +2,7 @@ import time
 import torch
 from engine.utils import summarize
 
+
 def sync_cuda(enabled: bool, value) -> None:
 
     if not enabled or not torch.cuda.is_available():
@@ -22,6 +23,14 @@ def sync_cuda(enabled: bool, value) -> None:
     for tensor in tensors:
         if tensor.device.type == "cuda":
             torch.cuda.synchronize(tensor.device)
+
+
+def _token_count(value) -> int | None:
+    if isinstance(value, torch.Tensor) and value.ndim >= 2:
+        return int(value.shape[-1])
+    if hasattr(value, "sequences") and isinstance(value.sequences, torch.Tensor) and value.sequences.ndim >= 2:
+        return int(value.sequences.shape[-1])
+    return None
 
 
 def profile_run(model, batch, target_names: list[str], mode: str, max_new_tokens: int, sync_each_hook: bool):
@@ -140,10 +149,19 @@ def profile_run(model, batch, target_names: list[str], mode: str, max_new_tokens
                 peak_memory = int(torch.cuda.max_memory_allocated(param.device))
                 break
 
+    input_token_count = _token_count(batch.get("input_ids")) if isinstance(batch, dict) else None
+    output_token_count = _token_count(output)
+    generated_token_count = None
+    if mode == "generate" and input_token_count is not None and output_token_count is not None:
+        generated_token_count = max(0, output_token_count - input_token_count)
+
     return {
         "mode": mode,
         "total_ms": (time.perf_counter() - started) * 1000.0,
         "peak_memory_bytes": peak_memory,
+        "input_token_count": input_token_count,
+        "output_token_count": output_token_count,
+        "generated_token_count": generated_token_count,
         "events": events,
         "aggregated": summary,
         "output_type": output.__class__.__name__,

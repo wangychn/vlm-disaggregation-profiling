@@ -18,6 +18,44 @@ def torch_dtype(name: str):
         "float32": torch.float32,
     }[name]
 
+# ==== Model loading functions ====
+
+
+def load_qwen3vl(model_id: str, dtype: str, device_map: str, trust_remote_code: bool):
+    from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
+
+    kwargs = {
+        "torch_dtype": torch_dtype(dtype),
+        "trust_remote_code": trust_remote_code,
+    }
+    if device_map != "none":
+        kwargs["device_map"] = device_map
+
+    model = Qwen3VLForConditionalGeneration.from_pretrained(model_id, **kwargs)
+    processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=trust_remote_code)
+    return model, processor
+
+
+def prepare_inputs(processor, question: str, image_path: str, add_generation_prompt: bool):
+    content = [
+        {"type": "image", "path": image_path},
+        {"type": "text", "text": question},
+    ]
+    messages = [{"role": "user", "content": content}]
+
+    batch = processor.apply_chat_template(
+        messages,
+        tokenize=True,
+        add_generation_prompt=add_generation_prompt,
+        return_dict=True,
+        return_tensors="pt",
+    )
+    
+    if isinstance(batch, dict):
+        batch.pop("token_type_ids", None)
+    return batch
+
+
 # ==== Device functions ====
 
 def pick_device(model):
